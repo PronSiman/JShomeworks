@@ -1,6 +1,6 @@
 const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
 const arr = alphabet.split('');
-const keyboard = [];
+
 
 const firstKeyboardLine = arr.slice(0, arr.indexOf('a'));
 const secondKeyboardLine = arr.slice(arr.indexOf('a'), arr.indexOf('z'));
