@@ -1,5 +1,6 @@
 const alphabet = 'qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
 
+const keyboard = addKeyboardLayout(alphabet);
 
 function addKeyboardLayout(string) {
     const keyboardArr = string.split('');
@@ -8,7 +9,7 @@ function addKeyboardLayout(string) {
     return keyboardRows;
 }
 
-const keyboard = addKeyboardLayout(alphabet);
+
 
 
 
@@ -32,7 +33,7 @@ function getRandCharInRow(numberString) {
 getRandCharInRow(+prompt('Введите номер строки на клавиатуре - число от  1 до 3') - 1);
 
 
-function getRandCharInAlph() {
+function getRandCharInAlph(keyboard) {
 
     let randomRow = Math.floor(Math.random() * keyboard.length);
     let randomLetterIndex = Math.floor(Math.random() * keyboard[randomRow].length);
@@ -41,4 +42,4 @@ function getRandCharInAlph() {
     return randomLetter;
 }
 
-alert(`Случайный символ клавиатурных строк это  - "${getRandCharInAlph()}"`);
+alert(`Случайный символ клавиатурных строк это  - "${getRandCharInAlph(keyboard)}"`);
