@@ -1,36 +1,43 @@
 const alphabet = 'qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
 
-function addKeyboardLayout(n) {
-    let keyboardArr = n.split('');
-    let keyboardRows = [keyboardArr.slice(0, keyboardArr.indexOf("a")), keyboardArr.slice(keyboardArr.indexOf("a"), keyboardArr.indexOf("z")), keyboardArr.slice(keyboardArr.indexOf("z"))];
+
+function addKeyboardLayout(string) {
+    const keyboardArr = string.split('');
+    const keyboardRows = [keyboardArr.slice(0, keyboardArr.indexOf("a")), keyboardArr.slice(keyboardArr.indexOf("a"), keyboardArr.indexOf("z")), keyboardArr.slice(keyboardArr.indexOf("z"))];
 
     return keyboardRows;
 }
 
-
-function getRandCharInRow(s) {
-    let keyboard = addKeyboardLayout(alphabet);
-
-    const number = +prompt('Введите номер строки на клавиатуре - число от  1 до 3');
+const keyboard = addKeyboardLayout(alphabet);
 
 
-    if (number <= 3 && number >= 1) {
-        let random = Math.floor(Math.random() * keyboard[number - 1].length);
-        alert(`Случайный символ из строки ${number}, это - ` + `"` + keyboard[number - 1][random] +
-            `"`);
+
+function getRandCharInRow(numberString) {
+
+    if (numberString <= 2 && numberString >= 0) {
+
+        const random = Math.floor(Math.random() * keyboard[numberString].length);
+        alert(`Случайный символ из строки ${numberString+1}, это - ${keyboard[numberString][random] } `);
     } else {
         alert('Введите число от 1 до 3')
+        getRandCharInRow(+prompt('Введите номер строки на клавиатуре - число от  1 до 3') - 1);
 
     }
+
+
+
+
 }
-getRandCharInRow();
+
+getRandCharInRow(+prompt('Введите номер строки на клавиатуре - число от  1 до 3') - 1);
 
 
 function getRandCharInAlph() {
-    let keyboard = addKeyboardLayout(alphabet);
+
     let randomRow = Math.floor(Math.random() * keyboard.length);
-    let randomLetterPosition = Math.floor(Math.random() * keyboard[randomRow].length);
-    let randomLetter = keyboard[randomRow][randomLetterPosition];
+    let randomLetterIndex = Math.floor(Math.random() * keyboard[randomRow].length);
+    let randomLetter = keyboard[randomRow][randomLetterIndex];
+
     return randomLetter;
 }
 
