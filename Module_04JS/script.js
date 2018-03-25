@@ -3,43 +3,44 @@ const alphabet = 'qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
 function addKeyboardLayout(string) {
     const keyboardArr = string.split('');
     const keyboardRows = [keyboardArr.slice(0, keyboardArr.indexOf("a")), keyboardArr.slice(keyboardArr.indexOf("a"), keyboardArr.indexOf("z")), keyboardArr.slice(keyboardArr.indexOf("z"))];
-
     return keyboardRows;
 }
+
 const keyboard = addKeyboardLayout(alphabet);
 
+
+
 let numberString;
+let rowIndex;
 
-do {
-    numberString = +prompt(`Введите число от 1 до 3`) - 1;
-    if (numberString <= 2 && numberString >= 0) {
-        const randomLetterIndex = getRandCharInRow(numberString)
-        alert(`Случайный символ из строки ${numberString+1}, это - ${keyboard[numberString][randomLetterIndex]} `);
-    } else if (confirm('Введите число от 1 до 3'));
-    else {
-        break;
+
+function getRandCharInRow(callback) {
+
+    while (true) {
+        numberString = prompt(`Введите целое число от 1 до 3`);
+        if (numberString === null) {
+            return;
+        }
+        numberString = +numberString;
+        if (Number.isInteger(numberString) && numberString <= 3 && numberString >= 1) {
+            rowIndex = numberString - 1;
+            break;
+        }
     }
-} while (numberString > 2 || numberString < 0)
 
-function getRandCharInRow(randomLetterIndex) {
-    const randomIndex = Math.floor(Math.random() * keyboard[randomLetterIndex].length);
-    return randomIndex;
+    const randomLetterIndex = callback(keyboard[rowIndex]);
+    console.log(`Случайный символ из строки ${numberString}, это - ${keyboard[rowIndex][randomLetterIndex] } `);
 }
+getRandCharInRow(randomIndex);
 
-function getRandCharInAlph(keyboard) {
 
-    const randomRow = Math.floor(Math.random() * keyboard.length);
-    const randomLetterIndex = getRandCharInRow(randomRow)
-    const randomLetter = keyboard[randomRow][randomLetterIndex];
-    return randomLetter;
+function getRandCharInAlph(callback) {
+    const randomRoWIndex = callback(keyboard);
+    const randomLetterIndex = callback(keyboard[randomRoWIndex]);
+    return keyboard[randomRoWIndex][randomLetterIndex];
 }
+console.log(`Случайный символ клавиатурных строк это  - "${getRandCharInAlph(randomIndex)}"`);
 
-alert(`Случайный символ клавиатурных строк это  - "${getRandCharInAlph(keyboard)}"`);
-
-
-
-
-
-
-
-// прошлый код
+function randomIndex(arr) {
+    return Math.floor(Math.random() * arr.length);
+}
