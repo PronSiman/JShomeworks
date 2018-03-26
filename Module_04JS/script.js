@@ -18,9 +18,9 @@ function getRandCharInRow(callback) {
 
     while (true) {
         numberString = prompt(`Введите целое число от 1 до 3`);
-        if (numberString === null) {
+        if (numberString === null)
             return;
-        }
+
         numberString = +numberString;
         if (Number.isInteger(numberString) && numberString <= 3 && numberString >= 1) {
             rowIndex = numberString - 1;
