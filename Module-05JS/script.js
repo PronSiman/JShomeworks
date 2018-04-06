@@ -64,9 +64,13 @@ function getLangFromUser() {
 getLangFromUser();
 
 function getRandCharInAlph(callback) {
-    const keybordRowsArray = Object.values(keyboard.layouts[keyboard.currentLang]);
-    const randomRowIndex = callback(keybordRowsArray);
-    const randLetterIndex = callback(keybordRowsArray[randomRowIndex]);
+    if (keyboard.currentLang.length === 0) return;
+    else {
+        const keybordRowsArray = Object.values(keyboard.layouts[keyboard.currentLang]);
+        const randomRowIndex = callback(keybordRowsArray);
+        const randLetterIndex = callback(keybordRowsArray[randomRowIndex]);
+        console.log(`Случайный символ языка ${keyboard.currentLang} - "${randLetterIndex}"`)
+    }
 
 }
 
