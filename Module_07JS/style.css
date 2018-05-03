@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 1680px;
+    padding-top: 100px;
+}
+
+.keys {
+    display: flex;
+    flex-direction: row;
+}
+
+ul {
+    margin-bottom: 6px;
+}
+
+.key-letter {
+    font-size: 20px;
+    color: #D80000;
+    text-align: center;
+    list-style-type: none;
+    display: block;
+    width: 46px;
+    height: 46px;
+    border: 4px solid #1C1CD8;
+    margin-right: 6px;
+    border-radius: 10px;
+}
+
+.key-letter:hover {
+    background-color: #00FEFE;
+    cursor: pointer;
+}
