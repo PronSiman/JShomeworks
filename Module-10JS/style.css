@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clockbox {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.wrapper {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.watchtxt {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+}
+
+.answer,
+.trueinput {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.trueinput {
+    color: darkblue;
+}
+
+.speedanswer,
+.besttime {
+    color: blue;
+    margin-top: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.besttime {
+    color: red;
+}
