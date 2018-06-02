@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
+
+.buttton-box {
+    margin: 0 auto;
+    display: flex;
+    padding: 20px;
+    width: 260px;
+    height: 160px;
+    border: 3px solid whitesmoke;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+button {
+    margin: 10px 0;
+    height: 30px;
+    border-radius: 10px;
+    color: blue;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: whitesmoke;
+    cursor: pointer;
+    outline: 0;
+}
