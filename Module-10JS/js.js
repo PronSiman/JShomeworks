@@ -14,18 +14,26 @@ let sc = 0,
     mn = 0;
 const lang = "qwerty";
 let langArr = lang.split("");
+let secondsValue = 0;
+
+
 
 function setTimer() {
 
     resButton.addEventListener("click", reseted)
 
     function countKPS(mn, sc) {
+        secondsValue = ((60 * +mn + +sc) / lang.length);
+        if (Math.ceil(secondsValue) - secondsValue > 0) {
+            secondsValue = +secondsValue.toFixed(2);
+        }
 
-        let secondsValue = 60 * +mn + +sc;
-        let dataFromStorage = +(localStorage.getItem('besttime'));
+        speedAnswer.textContent = `Ваша скорость ${secondsValue} клавишь в секунду `;
+        let dataFromStorage = +localStorage.getItem('besttime');
         if (secondsValue < dataFromStorage || dataFromStorage == 0) {
+
             localStorage.setItem('besttime', secondsValue);
-            bestTime.textContent = `Новый рекорд скорости ${secondsValue} секунды`;
+            bestTime.textContent = `Новый рекорд скорости ${secondsValue}  клавишь в секунду`;
 
         } else(localStorage.setItem('besttime', secondsValue));
 
@@ -95,15 +103,9 @@ function setTimer() {
             answer.textContent = 'НЕ верно';
         }
         if (langArr.length === 0) {
-
-            speedAnswer.textContent = `Клавиши введены верно на ${mn} минуте и  ${sc} секунде`;
             countKPS(mn, sc);
             clearInterval(timer);
         }
     }
-
-
-
-
 }
 setTimer();
