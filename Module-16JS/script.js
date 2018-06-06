@@ -5,14 +5,14 @@ let Shape = class Shape {
         this.initY = initY;
     }
     getColor() {
-        return `Current color is ${this.color}`
+        return this.color
     }
-    setColor(val) {
-        this.color = val;
+    setColor(newColor) {
+        this.color = newColor;
     }
     getCoords() {
-        return `X coordinate is :${this.initX}
-        Y coordinate is ${this.initY}`
+        return [this.initX, this.initY];
+
     }
     moveTo(newX, newY) {
         this.initX = newX;
@@ -33,17 +33,17 @@ class Rectangle extends Shape {
         this.initHeight = newHeight;
     }
     getDims() {
-        return `This width is: ${this.initWidth}
-        this height is: ${this.initHeight}`
+        return [this.initWidth, this.initHeight];
     }
     draw() {
         console.log(`Drawing a Rectangle at:
-        (x: ${this.initX}, y: ${this.initY})
-        Whit dementions:
-        width: ${this.initWidth}
-        height:${this.initHeight}
-        Filled with color: ${this.color}`)
+            (x: ${this.getCoords()[0]}, y: ${this.getCoords()[1]})
+            Whit dementions:
+            width: ${this.getDims()[0]}
+            height:${this.getDims()[1]}
+            Filled with color: ${this.getColor()}`)
     }
+
 }
 class Circle extends Shape {
     constructor(color, initX, initY, initRadius) {
@@ -51,21 +51,22 @@ class Circle extends Shape {
         this.initRadius = initRadius;
     }
     getRadius() {
-        return `Current radius is ${this.initRadius}`
+        return this.initRadius;
     }
-    setRadius(val) {
-        this.initRadius = val;
+    setRadius(newRdius) {
+        this.initRadius = newRdius;
     }
     draw() {
         console.log(`Drawing a Circle at:
-        (x: ${this.initX}, y: ${this.initY})
+        (x: ${this.getCoords()[0]}, y: ${this.getCoords()[1]})
         Whith dimentions:
-        radius: ${this.initRadius}
-        Filled with color: ${this.color}`)
+        radius: ${this.getRadius()}
+        Filled with color: ${this.getColor()}`)
     }
 }
 
 let rect = new Rectangle('#009688', 10, 10, 100, 100);
 let circ = new Circle('#FF5722', 50, 50, 250);
+
 rect.draw();
-circ.draw();
+circ.draw()
